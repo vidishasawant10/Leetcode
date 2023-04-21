@@ -1,0 +1,13 @@
+
+
+This code defines a method `isPalindrome` that takes an integer `x` as input and returns a boolean value indicating whether or not the input is a palindrome.
+
+A palindrome is a number that reads the same from both ends. For example, 121 and 1221 are palindromic numbers, while 123 and 12321 are not.
+
+The code first checks if the input number `x` is negative. If `x` is negative, then it cannot be a palindrome, so the function returns False.
+
+If `x` is not negative, the code creates a new variable `inputNum` to store the original input value. It also initializes a new variable `newNum` to 0, which will be used to store the reversed number.
+
+The code then enters a while loop that continues as long as `x` is greater than 0. Inside the loop, the code multiplies the current value of `newNum` by 10 and adds the remainder of `x` divided by 10. This effectively reverses the order of the digits in `x` and stores the result in `newNum`. The code then divides `x` by 10 using integer division (//), which effectively removes the last digit from `x`. This process continues until all the digits of `x` have been processed.
+
+Finally, the code checks if `newNum` is equal to the original input value `inputNum`. If `newNum` and `inputNum` are equal, then the input is a palindrome, and the function returns True. Otherwise, the input is not a palindrome, and the function returns False.
