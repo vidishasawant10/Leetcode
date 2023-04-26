@@ -1,0 +1,15 @@
+This line defines a function called generateParenthesis that takes an integer n as its input. The goal of this function is to generate all possible combinations of well-formed parentheses.
+
+This line initializes an empty list called result that will be used to store all the valid combinations of parentheses.
+
+This line defines a helper function called backtrack that takes three optional parameters: s, left, and right. s is a string that represents the current combination of parentheses, while left and right keep track of the number of open and closed parentheses added so far, respectively. If these parameters are not specified when the function is called, their default values are an empty string and zero, respectively.
+
+This code block checks if the length of the current combination s is equal to twice the input value n. If it is, this means that we have added n pairs of parentheses to s and it is a valid combination. So we add s to the result list and return from the function.
+
+This code block checks if we can add an open parenthesis to the current combination s. We can only do this if we have added fewer than n open parentheses so far. If this condition is true, we recursively call the backtrack function with an updated s string that includes an open parenthesis, and left and right values that have been incremented accordingly.
+
+This code block checks if we can add a closed parenthesis to the current combination s. We can only do this if we have added more open parentheses than closed parentheses so far. If this condition is true, we recursively call the backtrack function with an updated s string that includes a closed parenthesis, and left and right values that have been incremented accordingly.
+
+This line calls the backtrack function with its default parameters to start the recursive process of generating all possible combinations of well-formed parentheses.
+
+Finally, this line returns the result list, which contains all the valid combinations of parentheses.
