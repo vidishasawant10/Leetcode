@@ -1,0 +1,45 @@
+Certainly! Here's a detailed explanation of each line of code with an example:
+
+```python
+def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    slow = fast = head
+```
+
+This is the function signature and the first line of the implementation. It declares a method named `removeNthFromEnd` that takes in a linked list `head` and an integer `n`. `slow` and `fast` are both initialized to `head`, which means they both point to the first node of the list. Since `slow` and `fast` are both references to the same object in memory, updating one of them will also update the other.
+
+```python
+    for i in range(n):
+        fast = fast.next
+```
+
+This loop advances the `fast` pointer `n` nodes ahead of the `slow` pointer. This is done to create a gap of `n` nodes between the `slow` and `fast` pointers.
+
+Example: Suppose we have a linked list 1 -> 2 -> 3 -> 4 -> 5 and `n` is 2. Initially, `slow` and `fast` both point to the first node. After executing this loop, `fast` will point to the third node of the list.
+
+```python
+    if not fast:
+        return head.next
+```
+
+This condition checks if `fast` has reached the end of the list. If `fast` is `None`, it means that we need to remove the first node of the list. In this case, we simply return `head.next`, which is the second node of the list and the new head.
+
+Example: If `n` is 6 in the example linked list above, `fast` will become `None` after the previous loop. This condition will be true, and the method will return the second node of the list (i.e., `head.next`), which becomes the new head of the list.
+
+```python
+    while fast.next:
+        slow = slow.next
+        fast = fast.next
+```
+
+This loop advances both pointers together until `fast` reaches the end of the list. At this point, `slow` is pointing to the node right before the nth node from the end of the list.
+
+Example: In the example linked list above, if `n` is 2, after executing the previous two lines of code, `slow` will point to the second node (value 2) and `fast` will point to the fifth node (value 5). In the next iteration of this loop, `slow` will move one step forward and point to the third node (value 3), while `fast` will move one step forward and become `None`.
+
+```python
+    slow.next = slow.next.next
+    return head
+```
+
+This line removes the nth node from the end of the list by updating the `next` pointer of the node right before it (i.e., `slow.next`) to skip over it. Finally, the method returns the modified list.
+
+Example: Continuing with the example above, if `n` is 2, after executing this line of code, the third node (value 3) will point to the fifth node (value 5), and the second node (value 2) will be removed from the list. The modified list will be 1 -> 3 -> 4 -> 5.
