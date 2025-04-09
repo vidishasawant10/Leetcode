@@ -1,3 +1,6 @@
+//01. Two Sum
+package Easy;
+
 import java.util.HashMap;
 import java.util.Map;
 
