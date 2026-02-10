@@ -1,0 +1,77 @@
+Question
+You are given an m × n board representing a delivery area. The board contains:
+
+'X' - blockers (obstacles)
+'D' - DashMarts (pickup locations)
+' ' - empty spaces where dashers can travel
+A dasher can be located on any spot of the board. Your task is to find the distance from a dasher's position to the closest DashMart. The dasher can travel in 4 directions (up, down, left, right).
+
+Note: A dasher can be on a blocker cell 'X'.
+
+Return -1 if no DashMart is reachable.
+
+Part 1 — Distance to Closest DashMart
+Given a board and a starting position, return the minimum distance to the closest DashMart.
+
+Example 1
+Input:
+
+board = [
+  [' ', ' ', 'D'],
+  [' ', 'X', ' '],
+  [' ', ' ', ' ']
+]
+start = (0, 0)
+Output: 2
+
+Explanation: The closest DashMart at (0, 2) is 2 steps away: right → right.
+
+Example 2
+Input:
+
+board = [
+  ['X', 'X', 'X'],
+  ['X', 'D', 'X'],
+  ['X', 'X', 'X']
+]
+start = (0, 0)  # dasher on blocker
+Output: -1
+
+Explanation: The dasher is surrounded by blockers and cannot reach the DashMart.
+
+Part 2 — All Closest DashMarts
+For a given position, return the coordinates of all DashMarts that have the shortest distance. If multiple DashMarts are at the same minimum distance, return all of them.
+
+Example 3
+Input:
+
+board = [
+  ['D', ' ', 'D'],
+  [' ', ' ', ' '],
+  ['D', ' ', ' ']
+]
+start = (1, 1)
+Output: [(0, 1), (1, 0)] or [(2, 1), (1, 0)]
+
+Explanation:
+
+Distance to (0, 0): 2
+Distance to (0, 2): 2
+Distance to (2, 0): 2
+All three DashMarts are at distance 2. Return any two (or all if you prefer).
+
+Input Format
+# Board is represented as a 2D list of characters
+board: List[List[str]]  # Each cell is ' ', 'X', or 'D'
+
+# Starting position as (row, col) tuple
+start: Tuple[int, int]
+Constraints
+1 <= m, n <= 1000
+The board contains at least one cell
+DashMarts may be unreachable from some positions
+Time complexity should be O(m × n) per query for Part 1
+Consider input validation for edge cases
+Follow-up Questions
+How would you optimize if you need to answer multiple queries on the same board?
+What if the board changes dynamically (DashMarts open/close)?
