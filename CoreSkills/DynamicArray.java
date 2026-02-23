@@ -24,6 +24,7 @@ public class DynamicArray {
         }
         this.arr[i] = n;
 
+
     }
 //pushback method to add an element at the end of the dynamic array
     public void pushback(int n) {

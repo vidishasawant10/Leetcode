@@ -25,7 +25,7 @@ public class DesignHashSet {
         //checking if the primary array is null, if so check the index value, 
         // if the index is 0 we add 1 element extra to avoid nested collision 
         //or else just create a boolean array of length 1000
-        //eg: key = 12345 -> bucket = 345 % 1000 = 345, bucketItems = 12345 / 1000 = 12 so it represents theno itself
+        //eg: key = 12345 -> bucket = 345 % 1000 = 345, bucketItems = 12345 / 1000 = 12 so it represents the no itself
         if(storage[bucket] == null){
             if(bucket == 0){
                 storage[bucket] = new boolean[bucketItems + 1]; 
